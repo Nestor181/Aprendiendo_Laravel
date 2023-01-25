@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+use Illuminate\Database\Eloquent\Casts\Attribute; //Se usa este para poder utilizar los mutadores(set) y accesores(get)
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -41,4 +43,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected function name(): Attribute{
+        return new Attribute(
+
+           //Transformar las primeras letras de cada palabra a mayuscula al momento de mostrarlo en pantalla con accesores(get).
+           /* get: function ($value) {
+                return ucwords($value);
+            },*/
+
+            //Otra forma de hacer el acceso es.
+            get: fn($value) => ucwords($value),
+
+
+            //Transformar el dato en nombre a todas minusculas mediante mutadores(set).
+            set: function ($value) {
+                return strtolower($value);
+
+            }
+        );
+
+    }
 }
