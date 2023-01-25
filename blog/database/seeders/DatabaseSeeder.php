@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\curso;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,5 +22,10 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+       // $this->call(CursoSeeder::class); //Para utilizar todo lo escrito en el método Run del archivo CursoSeeder
+        Curso::factory(50)->create();//Llamamos al archivo curso para crear 50 datos de prueba.
+        User::factory(10)->create();
+       
     }
 }
