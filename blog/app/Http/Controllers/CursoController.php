@@ -67,4 +67,11 @@ class CursoController extends Controller
 
 
     }
+    //Eliminar un registro en la base de datos y redirigir a la pagina principal.
+    public function destroy(Curso $curso){
+        $curso -> delete();
+
+        return redirect()->route('cursos.index');
+
+    }
 }
