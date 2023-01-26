@@ -34,11 +34,17 @@ Route::get('cursos/{curso}', [ CursoController::class, 'show' ] );  //La parte d
 
 //Segunda forma, se crea un grupo de rutas que contengan el mismo controlador
 Route::controller(CursoController::class)->group(function(){
-    Route::get('cursos', 'index');
+    Route::get('cursos', 'index') ->name('cursos.index'); //Se agregan los nombres para indentificar las rutas.
 
-    Route::get("cursos/create", 'create' );
+    Route::get("cursos/create", 'create' ) ->name('cursos.create');
 
-    Route::get('cursos/{curso}', 'show' );
+    Route::post('cursos', 'store' )->name('cursos.store');
+
+    Route::get('cursos/{id}', 'show' )->name('cursos.show');
+
+    Route::get('cursos/{id}/edit', 'edit')->name('cursos.edit');
+
+    Route::put('cursos/{curso}', 'update')->name('cursos.update'); //Se utiliza el método put porque se recomienda este cuando se quiere actualizar información.
 });
 
 
