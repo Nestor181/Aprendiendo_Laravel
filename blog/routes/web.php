@@ -45,6 +45,8 @@ Route::controller(CursoController::class)->group(function(){
     Route::get('cursos/{id}/edit', 'edit')->name('cursos.edit');
 
     Route::put('cursos/{curso}', 'update')->name('cursos.update'); //Se utiliza el método put porque se recomienda este cuando se quiere actualizar información.
+
+    Route::delete('cursos/{cruso}', 'destroy')->name('cursos.destroy');  //Método para eliminar registros en la base de datos
 });
 
 
