@@ -20,13 +20,15 @@ class CursoController extends Controller
     public function store(StoreCurso $request){
 
         //De esta forma ya al obtener toda la informacion del formulario, se agrega un nuevo registro de curso con la informacion del formulario.
-        $curso = new Curso();
+       /* $curso = new Curso();
 
         $curso->name= $request->name;
         $curso->categoria= $request->categoria;
         $curso->descripcion= $request->descripcion;
 
-        $curso->save();
+        $curso->save();*/
+
+        $curso = Curso::create($request->all()); //Se creara un nuevo curso con los datos que coincidan con request.
 
         return redirect()->route('cursos.show', $curso->id);  //Redirige al link del objeto creado.
 
@@ -49,13 +51,17 @@ class CursoController extends Controller
             "descripcion" => "required",
             "categoria" => "required"
         ]);
-       
+
+               
         //Actualizamos el curso con la informacion obtenida desde el formulario de update.
-        $curso -> name = $request -> name;
+       /* $curso -> name = $request -> name;
         $curso -> categoria = $request -> categoria;
         $curso -> descripcion = $request -> desripcion;
 
-        $curso -> save();
+        $curso -> save();*/
+
+        $curso->update($request->all()); //Se actualiza todos los registos con la informacion del formulario masivamente.
+
 
         return redirect()->route('cursos.show', $curso->id);
 
