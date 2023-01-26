@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Request\StoreCurso; //Se agrega que se quire utilizar el store curso para las validaciones.
 
 class CursoController extends Controller
 {
@@ -16,13 +17,7 @@ class CursoController extends Controller
         return view('cursos.create');
     }
     //Este método se encarga de adquirir toda la informacion enviada desde el formulario.
-    public function store(Request $request){
-        
-        $request->validate([
-            "name" => "required|max:10",
-            "descripcion" => "required|min:10",
-            "categoria" => "required"
-        ]);
+    public function store(StoreCurso $request){
 
         //De esta forma ya al obtener toda la informacion del formulario, se agrega un nuevo registro de curso con la informacion del formulario.
         $curso = new Curso();
