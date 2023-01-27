@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Route; //Para decir que queremos utilizar la clase route
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //Traducir esas dos palabras de nuestras urls.
+        Route::resourceVerbs([
+            'create' => 'crear',
+            'edit' => 'editar',
+        ]);
     }
 }
