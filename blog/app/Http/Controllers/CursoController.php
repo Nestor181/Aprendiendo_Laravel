@@ -41,8 +41,8 @@ class CursoController extends Controller
         return view('cursos.show', compact('curso')); //esta es otra forma de enviar la variable
     }
 
-    public function edit(Curso $id){ //De esta forma se hace que se obtenga el objeto de cursos del registro con la id nueva.
-        return view( 'cursos.edit', compact('id') );
+    public function edit(Curso $curso){ //De esta forma se hace que se obtenga el objeto de cursos del registro con la id nueva.
+        return view( 'cursos.edit', compact('curso') );
 
     }
 
@@ -56,13 +56,13 @@ class CursoController extends Controller
 
                
         //Actualizamos el curso con la informacion obtenida desde el formulario de update.
-       $curso -> name = $request -> name;
+       /*$curso -> name = $request -> name;
         $curso -> categoria = $request -> categoria;
         $curso -> descripcion = $request -> desripcion;
 
-        $curso -> save();
+        $curso -> save();*/
 
-        //$curso->update($request->all()); //Se actualiza todos los registos con la informacion del formulario masivamente.
+        $curso->update($request->all()); //Se actualiza todos los registos con la informacion del formulario masivamente.
 
 
         return redirect()->route('cursos.show', $curso->id);
