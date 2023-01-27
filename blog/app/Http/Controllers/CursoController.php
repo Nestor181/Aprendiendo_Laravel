@@ -35,9 +35,9 @@ class CursoController extends Controller
         return redirect()->route('cursos.show', $curso->id);  //Redirige al link del objeto creado.
 
     }
-    public function show( $id ){//Este método muestra un elemento en particular, tiene este nombre por convención
+    public function show( Curso $curso ){//Este método muestra un elemento en particular, tiene este nombre por convención
        // return view('cursos.show', ['curso' => $curso]);//Se envia la variable curso con un array [nombreDeVar, var]
-        $curso=Curso::find($id); //buscar el curso por su id.
+        //$curso=Curso::find($id); //buscar el curso por su id.
         return view('cursos.show', compact('curso')); //esta es otra forma de enviar la variable
     }
 
