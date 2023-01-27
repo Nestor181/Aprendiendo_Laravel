@@ -15,6 +15,7 @@ class CursoFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    protected $model = Curso::class;
     public function definition()
     {
         //En este apartado se llenan cada una de los indices con datos de prueba para hacer mas inserciones de ejemplo.
