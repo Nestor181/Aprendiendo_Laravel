@@ -2,6 +2,7 @@
 
 @section('title', 'cursos create')
     <H1>En esta página podrás crear un curso</H1>
+    <a href="{{route('cursos.index')}}">Volver a página principal</a>
     <form action="{{route('cursos.store')}}" method='POST'>  <!--Enviar la informacion al link de cursos.store con el metodo post-->
         @csrf   <!--Con esta directiva de blade agrega un token al momento de enviar el formulario-->
         <label>
@@ -21,7 +22,7 @@
         <label>
             Descripcion:
             <br>
-            <textarea name='descripcion' rows='S'>{{old(descripcion)}}</textarea>
+            <textarea name='descripcion' rows='5'>{{old('descripcion')}}</textarea>
         </label>
 
         @error('descripcion')
@@ -34,10 +35,10 @@
         <label>
             Categoria:
             <br>
-            <input name='text' name='categoria' value="{{old('categoria')}}">
+            <input type='text' name='categoria' value="{{old('categoria')}}">
         </label>
 
-        @error('categoira')
+        @error('categoria')
             <br>
             <small>*{{$message}}</small>
             <br>
