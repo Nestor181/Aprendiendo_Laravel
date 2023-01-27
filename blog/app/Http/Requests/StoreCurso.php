@@ -25,7 +25,7 @@ class StoreCurso extends FormRequest
     {
         return [
         
-            "name" => "required|max:10",
+            "name" => "required|max:20",
             "descripcion" => "required|min:10",
             "categoria" => "required"
           
