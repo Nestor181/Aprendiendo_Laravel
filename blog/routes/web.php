@@ -16,7 +16,7 @@ use App\Http\Controllers\CursoController;
 */
 
 //Utilando el controlador para trabajar con la url
-Route::get('/', HomeController::class);
+Route::get('/', HomeController::class)->name('Home');
 
 //Sin usar controlador
 /*Route::get('/', function () { 
