@@ -8,19 +8,17 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
+<style>
+    .active{
+        color: rgb(231, 15, 187);
+        font-weight: bold;
+    }
+</style>
+
 </head>
 <body>
 
-    <header> 
-        <h1>Aprendiendo</h1>
-        <nav>
-            <ul>
-                <li> <a href="{{route('Home')}}">Home</a> </li>
-                <li> <a href="{{route('cursos.index')}}">Cursos</a> </li>
-            </ul>
-        </nav>
-    </header>
-    
+   @include('layouts.partials.header')
     @yield('content')
   
 </body>
