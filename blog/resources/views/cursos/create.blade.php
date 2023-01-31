@@ -16,7 +16,7 @@
         <!--En caso de que se encuentre con un error al momento de llenar el formulario en el apartado name, arrojara un mensaje de error-->
         @error('name')
             <br>
-            <small>*{{$message}}</small>
+            <p class="error"><strong><small>*{{$message}}</small></strong></p>  
             <br>
         @enderror
 
@@ -29,7 +29,7 @@
 
         @error('descripcion')
             <br>
-            <small>*{{$message}}</small>
+            <p class="error"><strong><small>*{{$message}}</small></strong></p>  
             <br>
         @enderror
 
@@ -42,7 +42,7 @@
 
         @error('categoria')
             <br>
-            <small>*{{$message}}</small>
+            <p class="error"><strong><small>*{{$message}}</small></strong></p>  
             <br>
         @enderror
 
