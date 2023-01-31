@@ -10,15 +10,18 @@
     <script src='main.js'></script>
 </head>
 <body>
-    @yield('content')
+
     <header> 
         <h1>Aprendiendo</h1>
         <nav>
             <ul>
-                <li> <a href="">Home</a> </li>
-                <li> <a href="">Cursos</a> </li>
+                <li> <a href="{{route('Home')}}">Home</a> </li>
+                <li> <a href="{{route('cursos.index')}}">Cursos</a> </li>
             </ul>
         </nav>
     </header>
+    
+    @yield('content')
+  
 </body>
 </html>
