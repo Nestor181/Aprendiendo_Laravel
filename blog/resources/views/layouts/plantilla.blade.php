@@ -11,5 +11,14 @@
 </head>
 <body>
     @yield('content')
+    <header> 
+        <h1>Aprendiendo</h1>
+        <nav>
+            <ul>
+                <li> <a href="">Home</a> </li>
+                <li> <a href="">Cursos</a> </li>
+            </ul>
+        </nav>
+    </header>
 </body>
 </html>
