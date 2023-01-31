@@ -1,12 +1,14 @@
 @extends('layouts.plantilla')
 
 @section('title', 'cursos create')
-    <H1>En esta página podrás crear un curso</H1>
-    <a href="{{route('cursos.index')}}">Volver a página principal</a>
+@section('content')
+    <H1> <strong> En esta página podrás crear un curso </strong></H1>
+    <a href="{{route('cursos.index')}}">Volver a atras</a>
     <form action="{{route('cursos.store')}}" method='POST'>  <!--Enviar la informacion al link de cursos.store con el metodo post-->
         @csrf   <!--Con esta directiva de blade agrega un token al momento de enviar el formulario-->
+        <br>
         <label>
-            Nombre:
+            <strong> Nombre: </strong>
             <br>
             <input type='text' name='name' value="{{old('name')}}">
         </label>
@@ -20,7 +22,7 @@
 
         <br>
         <label>
-            Descripcion:
+            <strong> Descripcion: </strong>
             <br>
             <textarea name='descripcion' rows='5'>{{old('descripcion')}}</textarea>
         </label>
@@ -33,7 +35,7 @@
 
         <br>
         <label>
-            Categoria:
+            <strong> Categoria: </strong>
             <br>
             <input type='text' name='categoria' value="{{old('categoria')}}">
         </label>
@@ -47,6 +49,6 @@
         <br>
         <button type="submit">Enviar</button>
     </form>
-@section('content')
+
     
 @endsection

@@ -3,7 +3,7 @@
 @section('title', 'cursos edit')
 @section('content')
     <H1><strong> En esta página podrás editar un curso </strong></H1>
-    <a href="{{route('cursos.index')}}">Volver a página principal</a>
+    <a href="{{route('cursos.index')}}">Volver a página cursos</a>
     <br>
     <a href="{{route('cursos.show',$curso)}}">Volver a atrás</a>
 
