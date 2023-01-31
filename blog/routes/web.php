@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CursoController;
+use App\Mail\ContactanosMailable;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,4 +66,11 @@ Route::resource('asignaturas', CursoController::class)->parameters(['asignaturas
 });*/
 
 Route::view('nosotros', 'nosotros')->name('nosotros'); //Este método sirve para mostrar contenido estático,solo mostrar una vista. 
+Route::get('contactanos', function () {
+    $correo = new ContactanosMailable;
 
+    Mail::to('nestorfm801@gamil.com')->send($correo);
+
+    return "Mensaje enviado";
+
+});
