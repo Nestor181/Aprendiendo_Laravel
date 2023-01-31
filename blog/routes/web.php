@@ -63,3 +63,5 @@ Route::resource('asignaturas', CursoController::class)->parameters(['asignaturas
     }
 });*/
 
+Route::view('nosotros', 'nosotros')->name('nosotros'); //Este método sirve para mostrar contenido estático,solo mostrar una vista. 
+
