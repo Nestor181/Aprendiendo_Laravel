@@ -13,6 +13,11 @@
         color: rgb(231, 15, 187);
         font-weight: bold;
     }
+
+    .error{
+        color: brown;
+        font-weight: bold;
+    }
 </style>
 
 </head>
