@@ -3,7 +3,7 @@
 @section('title', 'curso '.$curso->name)
     
 @section('content')
-    <H1>Bienvenido al curso {{$curso->name}}</H1>
+    <H1><strong> Bienvenido al curso {{$curso->name}} </strong></H1>
         <a href="{{route('cursos.index')}}"> Volver a página principal </a><!--Para poder regresar al link principal de bienvenido a curso-->
         <br>
         <a href="{{route('cursos.edit', $curso)}}"> Editar curso </a>
