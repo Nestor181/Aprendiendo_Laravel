@@ -20,7 +20,7 @@
         <x-jet-banner />
 
         <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
+            @livewire('navigation-menu') <!--Componente de navegacion (V.30)-->
 
             <!-- Page Heading -->
             @if (isset($header))
