@@ -67,4 +67,14 @@ class User extends Authenticatable
 
         return $this->hasOne(Profile::class);
     }
+
+    //Relacion uno a muchos(V.42)
+    public function posts(){
+        return $this->hasMany('App\Models\Post');  //Metodo para recuperar la coleccion de post que pertenecen a este usurio(V.42)
+    }
+
+    public function videos(){
+        return $this->hasMany('App\Models\Video'); 
+    }
 }
+
