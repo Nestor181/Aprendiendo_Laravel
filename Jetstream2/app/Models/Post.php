@@ -22,4 +22,11 @@ class Post extends Model
     public function image(){
         return $this->morphOne('App\Models\Image', 'imageable');
     }
+
+    //Relacion 1:m polimorfica (V.45)
+    public function comments(){
+        return $this->morphMany('App\Models\Comment', 'commentable'); //Esta line indica que se relacuionara con el modelo comment y 
+                                                                      //el segundo parametro indca la funcion que pusimos para indicar 
+                                                                      //que es un modelo polimorfico.
+    }
 }

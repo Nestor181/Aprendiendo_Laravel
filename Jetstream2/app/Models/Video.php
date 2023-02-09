@@ -13,5 +13,12 @@ class Video extends Model
     public function user(){
         return $this->belongsTo('App\Models\User');  //Metodo para recuperar la coleccion de post que pertenecen a este usurio(V.42)
     }
+
+     //Relacion 1:m polimorfica (V.45)
+     public function comments(){
+        return $this->morphMany('App\Models\Comment', 'commentable'); //Esta line indica que se relacuionara con el modelo comment y 
+                                                                      //el segundo parametro indca la funcion que pusimos para indicar 
+                                                                      //que es un modelo polimorfico.
+    }
 }
 
