@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::middleware([
     'auth:sanctum',
@@ -25,4 +25,14 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+});
+
+//Creando middlewares
+
+Route::get('prueba', function(){
+    return "Haz accedido correctamente a este link";
+})->middleware(['auth:sanctum','age']); //Asi se asigna el middleware 'age' a esta ruta
+
+Route::get('no_autorizado', function () {
+    return "Usted no es mayor de edad";
 });

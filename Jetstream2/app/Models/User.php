@@ -10,6 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
+use App\Models\Profile;
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -58,4 +59,33 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    
+    //Relacion uno a uno
+    public function profile(){
+        //$profile = Profile::where('user_id', $this->id)->first();
+
+        return $this->hasOne(Profile::class);
+    }
+
+    //Relacion uno a muchos(V.42)
+    public function posts(){
+        return $this->hasMany('App\Models\Post');  //Metodo para recuperar la coleccion de post que pertenecen a este usurio(V.42)
+    }
+
+    public function videos(){
+        return $this->hasMany('App\Models\Video'); 
+    }
+
+    //Relacion muchos a muchos (V.43)
+    public function roles(){
+        return $this->belongsToMany('App\Models\Role'); 
+    }
+    
+     //Relacion 1:1 polimorfica (V.44)
+     public function image(){
+        return $this->morphOne('App\Models\Image', 'imageable');
+    }
+
 }
+
