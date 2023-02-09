@@ -29,4 +29,9 @@ class Post extends Model
                                                                       //el segundo parametro indca la funcion que pusimos para indicar 
                                                                       //que es un modelo polimorfico.
     }
+
+    //Relacion m:m polimorfica (V.46)
+    public function posts(){
+        return $this->morphToMany('App\Models\Tags','taggable'); 
+    }
 }
