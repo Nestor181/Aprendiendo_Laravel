@@ -87,5 +87,10 @@ class User extends Authenticatable
         return $this->morphOne('App\Models\Image', 'imageable');
     }
 
+    //Relacion 1:m con comments (V.45)
+    public function comments(){
+        return $this->hasMany('App\Model\Comment');
+    }
+
 }
 
