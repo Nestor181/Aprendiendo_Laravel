@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreCurso;
 //Se agrega que se quire utilizar el store curso para las validaciones.
 
+use Illuminate\Support\Facades\Log;
+
+use Illuminate\Support\Str;
+
 use App\Models\curso;
 class CursoController extends Controller
 {
@@ -26,13 +30,12 @@ class CursoController extends Controller
 
         $curso->name= $request->name;
         $curso->categoria= $request->categoria;
+        $curso->slug = Str::slug( $request->name, '_');
         $curso->descripcion= $request->descripcion;
 
         $curso->save();
 
-        //$curso = Curso::create($request->all()); //Se creara un nuevo curso con los datos que coincidan con request.
-
-        return redirect()->route('cursos.show', $curso->id);  //Redirige al link del objeto creado.
+        return redirect()->route('cursos.show', compact('curso'));  //Redirige al link del objeto creado.
 
     }
     public function show( Curso $curso ){//Este método muestra un elemento en particular, tiene este nombre por convención
@@ -53,19 +56,18 @@ class CursoController extends Controller
             "descripcion" => "required",
             "categoria" => "required"
         ]);
-
                
         //Actualizamos el curso con la informacion obtenida desde el formulario de update.
-       /*$curso -> name = $request -> name;
+        $curso -> name = $request -> name;
+        $curso->slug = Str::slug( $request->name, '_');
         $curso -> categoria = $request -> categoria;
-        $curso -> descripcion = $request -> desripcion;
+        $curso -> descripcion = $request -> descripcion;
 
-        $curso -> save();*/
+        $curso -> save();
 
-        $curso->update($request->all()); //Se actualiza todos los registos con la informacion del formulario masivamente.
+       // $curso->update($request->all()); //Se actualiza todos los registos con la informacion del formulario masivamente.
 
-
-        return redirect()->route('cursos.show', $curso->id);
+       return redirect()->route('cursos.show', $curso);
 
 
     }

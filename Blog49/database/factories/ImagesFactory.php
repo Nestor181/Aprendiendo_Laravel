@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Image;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
@@ -14,8 +15,7 @@ class ImageFactory extends Factory
      *
      * @return array<string, mixed>
      */
-
-    protected $model = Immage::class;
+    protected $model = Image::class;
     public function definition()
     {
         return [

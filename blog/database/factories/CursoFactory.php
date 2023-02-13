@@ -26,7 +26,7 @@ class CursoFactory extends Factory
             'slug' => Str::slug($name,'_'), //Hace que el nombre que se le pase lo pase a minusculas y los espacios los separe con un guion.(Video 23)
             'descripcion' => $this->faker->paragraph(), 
             'categoria' => $this->faker->randomElement(['Desarrollo web','Diseño web'])
-            
+
         ];
     }
 }

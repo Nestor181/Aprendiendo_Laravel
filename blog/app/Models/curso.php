@@ -9,8 +9,6 @@ class curso extends Model
 {
     use HasFactory;
 
-    //protected $table = 'users'; //con esta linea hace que el modelo se encargue de administrar la tabla users
-
     //protected $fillable = ['name', 'descripcion', 'categoria'];
     protected $guarded = ['status']; //Ignora el campo status y guarda todos los demas campos.
 
